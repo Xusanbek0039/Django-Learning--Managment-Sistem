@@ -9,7 +9,7 @@
             <div class="d-table">
                 <div class="d-table-cell">
                     <div class="container">
-                        <h3>Login</h3>
+                        <h3>Hisobga kirish</h3>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
 
                         <form method="POST" id="login-form">
                             {% csrf_token %}
-                            <div class="heading">Login</div>
+                            <div class="heading">Hisobga kirish</div>
                             {% if form.errors %}
                             {% for field in form %}
                                 {% for error in field.errors %}
@@ -43,29 +43,29 @@
                         {% endif %}
                             <div class="left">
                                 <div class="form-group">
-                                    <label>Username Or Email</label>
-                                    <input name="email_or_username" type="text" class="form-control" placeholder="Username Or Email" required>
+                                    <label>Email yoki Ismingiz</label>
+                                    <input name="email_or_username" type="text" class="form-control" placeholder="Email yoki Ismingiz" required>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label>Password</label>
-                                    <input name="password" type="password" class="form-control" placeholder="Password" required>
+                                    <label>Parolingiz</label>
+                                    <input name="password" type="password" class="form-control" placeholder="Parolingiz" required>
                                 </div>
                                 
-                                <button type="submit" class="btn btn-primary">Login</button>
+                                <button type="submit" class="btn btn-primary">Kirish</button>
                             </div>
                             
                             <div class="right">
-                                <div class="connect">Connect with</div>
+                                <div class="connect">Hisobni ulash</div>
                                 <a href="#" class="facebook"><i class="icofont-facebook"></i> Facebook</a>
                                 <a href="#" class="twitter"><i class="icofont-twitter"></i> Twitter</a>
-                                <a href="#" class="google-plus"><i class="icofont-google-plus"></i> Google</a>
+                                <a href="#" class="google-plus"><i class="icofont-google"></i> Google</a>
                             </div>
                         </form>  
                     </div>
                 </div>
             </div>
         </section>
-        <!-- End Login Area -->
+
         
 {% endblock %}
