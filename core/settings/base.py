@@ -14,7 +14,7 @@ SECRET_KEY = ')ce3afwgsvm@2*9to89xcd&=$22qxcz(cujim3$cm6$#*z2v)gb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gainskill.herokuapp.com',]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
