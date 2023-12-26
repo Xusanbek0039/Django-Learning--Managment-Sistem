@@ -1,6 +1,6 @@
 import os
 import django_heroku
-
+from pathlib import Path
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -13,7 +13,7 @@ SECRET_KEY = ')ce3afwgsvm@2*9to89xcd&=$22qxcz(cujim3$cm6$#*z2v)gb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+BASE_DIR = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = ['*']
 
 
@@ -60,10 +60,35 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'core.urls'
 
+# TEMPLATES = [
+#     {
+#         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+#         'DIRS': [os.path.join(BASE_DIR, 'templates')],
+#         'APP_DIRS': True,
+#         'OPTIONS': {
+#             'context_processors': [
+#                 'django.template.context_processors.debug',
+#                 'django.template.context_processors.request',
+#                 'django.contrib.auth.context_processors.auth',
+#                 'django.contrib.messages.context_processors.messages',
+
+#                 # custom
+#                 'coresite.context_processors.categories_context_processor',
+#                 'coresite.context_processors.site_context_processor',
+
+#                 # 3rd Party
+
+#             ],
+#         },
+
+#     },
+# ]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [BASE_DIR / 'templates']
+        ,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,24 +96,16 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
-                # custom
-                'coresite.context_processors.categories_context_processor',
-                'coresite.context_processors.site_context_processor',
-
-                # 3rd Party
-
             ],
         },
-
     },
 ]
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+
+
 
 DATABASES = {
     'default': {
@@ -167,8 +184,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-    BASE_DIR / 'blog/static',
+    BASE_DIR / 'static'
 ]
 # from core.aws.conf import *
 
