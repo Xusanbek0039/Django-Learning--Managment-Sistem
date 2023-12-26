@@ -8,8 +8,7 @@ from django.http import JsonResponse
 from courses.models import Course
 from .models import Cart
 from .forms import BillingForm
-from .sslcommerz import sslcommerz_payment_gateway
-
+# from carts.sslcommerz import sslcommerz_payment_gateway
 
 class CartView(ListView):
     model = Cart
