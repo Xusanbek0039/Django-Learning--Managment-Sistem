@@ -1,9 +1,13 @@
+
+
 {% load static %}
 
+{% block content %}
+{% block title %}  {% endblock %}
 <!DOCTYPE html>
 <html lang="uz" >
 <head>
-  <meta charset="UTF-8">
+  <meta charset="Asia-Tashkent">
   <title>IT Creative - 500 xatolik</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&amp;display=swap'>
@@ -45,11 +49,13 @@
 	</div>
 	<div>
 		<h1>500</h1>
-		<p>We couldn’t find the page you were looking for. It may have been moved, or it just doesn’t exist.</p>
-		<a class="btn-link" href="#">Bosh saxifaga qaytish</a>
+		<p>Bu xatolik odatda serverda muommo bo'lganda kelib chiqadi iltimos internet sozlamarini qayta sozlang yoki VPN yoniq bo'lsa uni o'chirib tizimga qayta kirib ko'rishga harakat qilib ko'ring!</p>
+		<a class="btn-link" href="{% url 'coresite:home' %}">Bosh saxifaga qaytish</a>
 	</div>
 </main>
 <!-- partial -->
   
+
 </body>
 </html>
+{% endblock %}
