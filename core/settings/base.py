@@ -61,6 +61,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'core.urls'
 
+
+
+
+
+
+
+# templsates sozlamari
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -88,8 +95,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+
+
+
+
+# databaza sozlamalari 
+BASE_DIR = Path(__file__).resolve().parent.parent
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -97,9 +110,17 @@ DATABASES = {
     }
 }
 
-# Password validation
-# https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
+
+
+
+
+
+
+
+
+
+# tekshiruv yani autentificatsiya sozlamalari 
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -116,12 +137,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/3.0/topics/i18n/
+# vaqt mintaqa sozlamalari 
 
-LANGUAGE_CODE = 'uz'
+LANGUAGE_CODE = 'uz-uz'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
@@ -130,7 +150,17 @@ USE_L10N = True
 USE_TZ = True
 
 
-# User Model
+
+
+
+
+
+
+
+
+
+
+# models sozlamalari
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 from django.contrib.messages import constants as messages
@@ -144,6 +174,19 @@ MESSAGE_TAGS = {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+# static sozlamalari
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -152,14 +195,17 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-# Static files (CSS, JavaScript, Images)
-# STATIC_ROOT= os.path.join(BASE_DIR, 'staticfiles')
-# STATIC_URL = '/static/'
 
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-    
-# )
+
+
+
+
+
+
+
+
+
+
 
 # Media Folder Settings
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -167,9 +213,3 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Activate Django-Heroku.
-# django_heroku.settings(locals())
-
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# from core.aws.conf import *
