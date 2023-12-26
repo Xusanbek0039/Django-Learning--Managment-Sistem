@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = ')ce3afwgsvm@2*9to89xcd&=$22qxcz(cujim3$cm6$#*z2v)gb'
 
 # DEBUG hamda hos sozlamari
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 

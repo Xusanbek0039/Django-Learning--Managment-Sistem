@@ -8,7 +8,7 @@
             <div class="d-table">
                 <div class="d-table-cell">
                     <div class="container">
-                        <h3>Profile</h3>
+                        <h3>Shaxsiy hisob</h3>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                                
                             </div>
                             <div class="teacher-contact-info">
-                                <h4>Contact Info:</h4>
+                                <h4>A'loqa malumotlari:</h4>
                                 <ul>
                                     <li><i class="icofont-envelope"></i> <a href="#">{{ profile.email }}</a></li>
                                     <li><i class="icofont-badge"></i> <a href="#">{{ profile.profile.designation }}</a></li>
@@ -41,7 +41,7 @@
 
                                 <ul class="teacher-social">
                                     <li><a href="#" class="icofont-facebook"></a></li>
-                                    <li><a href="#" class="icofont-twitter"></a></li>
+                                    <li><a href="#" class="icofont-telegram"></a></li>
                                     <li><a href="#" class="icofont-instagram"></a></li>
                                     <li><a href="#" class="icofont-linkedin"></a></li>
                                 </ul>
@@ -51,7 +51,7 @@
                         <div class="col-lg-3 col-md-12">
                             <div class="teacher-contact">
                                 {% if request.user.id == profile.id  %}
-                                <a href="{% url 'accounts:profile-update' %}" class=""><button class="btn btn-danger">Edit Profile</button></a>
+                                <a href="{% url 'accounts:profile-update' %}" class=""><button class="btn btn-danger">Hisobni taxrirlash</button></a>
                                 {% endif %}
 
 
@@ -78,7 +78,7 @@
                             <div class="single-teacher-about">
 
 								<div class="teacher-desc">
-									<h2>About </h2>
+									<h2>Umumiy malumot </h2>
 									<p>{{ profile.profile.about }}.</p>
 								</div>
 							</div>
@@ -89,7 +89,7 @@
             
             <div class="teacher-involved-coures">
                 <div class="container">
-                    <h2>Involved in courses ( {{ total }} )</h2>
+                    <h2>Yaratgan kurslari  hozircha : {{ total }} ta </h2>
                     
                     <div class="row">
                         {% for course in total_courses %}
@@ -103,21 +103,21 @@
 
                                 <div class="courses-content">
                                     <h3><a href="{{ course.get_absolute_url }}">{{ course.title }}</a></h3>
-                                    <!-- <ul>
+                                     <ul>
                                         <li><i class="icofont-star"></i></li>
                                         <li><i class="icofont-star"></i></li>
                                         <li><i class="icofont-star"></i></li>
                                         <li><i class="icofont-star"></i></li>
                                         <li><i class="icofont-star"></i></li>
-                                    </ul> -->
+                                    </ul> 
                                 </div>
 
                                 <div class="courses-content-bottom">
                                     <h4><i class="icofont-ui-user"></i>{{ course.get_enroll_count }} 
                                         {% if course.get_enroll_count > 1 %}
-                                            Students</h4>
+                                            Studentlar</h4>
                                             {% else %}
-                                            Student </h4>
+                                             Student </h4>
                                         {% endif %}
 
                                     <h4 class="price">
@@ -126,7 +126,7 @@
                                         {% elif course.price  %}
                                         {{ course.price }}
                                         {% else %}
-                                        Free
+                                        Bepul
                                         {% endif %}
                                     </h4>
 
@@ -140,6 +140,6 @@
                 </div>
             </div>
         </section>
-        <!-- End Teacher Details Area -->
+
         
         {% endblock %}
