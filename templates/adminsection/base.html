@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+        {% include 'adminsection/includes/_head.html' %}
+        <title> 
+             {% block title %}  {% endblock %} GAINSKILL
+        </title>
+    </head>
+<body class="fixed-left">
+    <div id="wrapper">
+
+        {% include 'adminsection/includes/_header.html' %}
+        {% include 'adminsection/includes/_sidebar.html' %}
+        
+        {% block content %}
+
+        {% endblock %}
+
+
+
+
+    </div>
+    {% include 'adminsection/includes/_scripts.html' %}
+    {% include 'mainsite/includes/_notification.html' %}
+
+    {% block scripts %}
+
+    {% endblock %}
+</body>
+</html>

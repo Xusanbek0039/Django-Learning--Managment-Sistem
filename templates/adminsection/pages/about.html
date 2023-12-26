@@ -1,0 +1,118 @@
+{% extends 'adminsection/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->                      
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            <div class="container">
+
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h4 class="pull-left page-title"></h4>
+                        <ol class="breadcrumb pull-right">
+                            <li><a href="{% url 'customadmin:dashboard' %}">Dashboard</a></li>
+                            <li class="active">About Page</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><h3 class="panel-title">About Page</h3></div>
+                            <div class="panel-body">
+                                <div class=" form">
+                                    
+                                    <form class="cmxform form-horizontal tasi-form" id="commentForm" method="POST" action="{% url 'customadmin:about' %}" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        
+                                        <div class="form-group ">
+                                            <label for="cname" class="control-label col-lg-2">Title</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="id_title" name="title" type="text" required="" aria-required="true" value="{{ about.title }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="cname" class="control-label col-lg-2">Description</label>
+                                            <div class="col-lg-10">
+                                                {{ form.description }}
+                                            </div>
+                                        </div> 
+                                        <div class="form-group ">
+                                            <label for="cname" class="control-label col-lg-2">Our Mission</label>
+                                            <div class="col-lg-10">
+                                                {{ form.our_mission }}
+                                            </div>
+                                        </div> 
+                                        <div class="form-group ">
+                                            <label for="cname" class="control-label col-lg-2">Who We Are</label>
+                                            <div class="col-lg-10">
+                                                {{ form.who_we_are }}
+                                            </div>
+                                        </div> 
+
+                                        <div class="form-group ">
+                                            <label for="lastname" class="control-label col-lg-2">Banner One</label>
+                                            <div class="col-lg-10">
+                                                <img style="height: 100px; width: 100px ;" src="{% if about.thumbnail_one %}  {{ about.thumbnail_one.url }} {% endif %}" alt="">
+                                                <input style="margin-top: 10px;" type="file" name="thumbnail_one" accept="image/*" id="id_thumbnail_one">
+                                            </div>
+                                        </div>      
+                                        <div class="form-group ">
+                                            <label for="lastname" class="control-label col-lg-2">Banner Two</label>
+                                            <div class="col-lg-10">
+                                                <img style="height: 100px; width: 100px ;" src="{% if about.thumbnail_two %}  {{ about.thumbnail_two.url }} {% endif %}" alt="">
+                                                <input style="margin-top: 10px;" type="file" name="thumbnail_two" accept="image/*" id="id_thumbnail_two">
+                                            </div>
+                                        </div>      
+                                        <div class="form-group ">
+                                            <label for="lastname" class="control-label col-lg-2">Banner Three</label>
+                                            <div class="col-lg-10">
+                                                <img style="height: 100px; width: 100px ;" src="{% if about.thumbnail_three %}  {{ about.thumbnail_three.url }} {% endif %}" alt="">
+                                                <input style="margin-top: 10px;" type="file" name="thumbnail_three" accept="image/*" id="id_thumbnail_three">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <div class="col-lg-offset-2 col-lg-10">
+                                                <button class="btn btn-success waves-effect waves-light" type="submit">Update</button>
+                                            </div>
+                                            
+                                    </form>
+                                </div> <!-- .form -->
+                            </div> <!-- panel-body -->
+                        </div> <!-- panel -->
+                    </div> <!-- col -->
+
+                </div> <!-- End row -->
+    </div> <!-- container -->
+                        
+        </div> <!-- content -->
+
+ 
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
+
+
+
+
+{% endblock %}
+
+{% block scripts %}
+<!--form validation -->
+
+<script type="text/javascript" src="{% static 'customadmin/assets/jquery.validate/jquery.validate.min.js' %}"></script>
+<script src="{% static 'customadmin/assets/jquery.validate/form-validation-init.js' %}"></script>
+{% endblock %}
+

@@ -1,0 +1,208 @@
+{% extends 'mainsite/base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+    <!-- Start Page Title Area -->
+    <div class="page-title">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <div class="container">
+                    <h3>Checkout</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Page Title Area -->
+
+
+    <!-- Start Checkout Area -->
+    <section class="checkout-area ptb-100">
+        <div class="container">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                <div class="alert alert-danger alert-dismissable">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <strong> {{ field.name }} {{ error|escape }}</strong>
+                                </div>
+                            </div>
+                        </div>
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                            <div class="alert alert-danger alert-dismissable">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>{{ field.errors }}{{ error|escape }}</strong>
+                            </div>
+                        </div>
+                    </div>
+                        {% endfor %}
+                      {% endif %}
+                        <div class="checkout-form">
+                            <h3>Billing Address</h3>
+                  
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Full Name*</label>
+                                        <input class="form-control" type="text" name="full_name" maxlength="50" placeholder="Enter First Name" required="" id="id_full_name">
+                                        
+                                    </div>
+                                </div>
+
+    
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label>Email*</label>
+                                        
+                                        <input  class="form-control" type="email" name="email" maxlength="50" required="" id="id_email">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label>Phone*</label>
+                                        <input type="text" name="phone" maxlength="13" required="" id="id_phone" class="form-control">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Addreess*</label>
+                                        <input type="text" name="address" maxlength="50" required="" id="id_address" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        <label>Street addreess</label>
+                                        <input type="text" name="Street_addreess" maxlength="50" required="" id="id_Street_addreess" class="form-control">
+                                    </div>
+                                </div>
+
+                                <!-- <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label>District*</label>
+                                        <select class="form-control">
+                                            <option>Select Your District</option>
+                                            <option>Panchagarh</option>
+                                            <option>Thakurgaon</option>
+                                            <option>Saidpur</option>
+                                            <option>Nilphamari</option>
+                                            <option>Rangpur</option>
+                                            <option>Dinajpur</option>
+                                        </select>
+                                    </div>
+                                </div> -->
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label>Town/City*</label>
+                                        <input type="text" name="city" maxlength="50" required="" id="id_city" class="form-control">
+                                    </div>
+                                </div>
+
+                                
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label>Postcode/ZIP*</label>
+                                        <input type="text" name="post_code" maxlength="50" required="" id="id_post_code" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-check">
+                                        <input id="is_save_billing" name="is_save_billing" value="True" type="checkbox">
+                                        <label>Save Billing Address</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="order-box">
+                            <h3>Your Order</h3>
+
+                            <div class="order-table table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">No</th>
+                                            <th scope="col">Product Name</th>
+                                            <th scope="col">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        {% for course in cart.products.all %}
+                                        
+                                        <tr>
+                                            <td>
+                                                <span class="amount">{{ forloop.counter }}</span>
+                                            </td>
+                                            <td class="text-left">
+                                                <a href="{{ course.get_absolute_url }}">{{ course.title }}</a> 
+                                            </td>
+                                            <td>
+                                                {% if course.offer_price %}
+                                                <span class="amount">{{ course.offer_price }} </span> {{ site_data.currency }}
+                                                {% else %}
+                                                <span class="amount">{{ course.price }} </span> {{ site_data.currency }}
+                                                {% endif %}
+                                            </td>
+                                            
+                                        </tr>
+                                        {% endfor %}
+                                        </thead>
+                                    </tbody>
+                                </table>
+                                <div class="cart-total-table table-responsive">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td>Total</td>
+                                                <td class="text-right">{{ cart.total }} {{ site_data.currency }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="payment-information">
+                                <h3>Payment Information</h3>
+                             
+                                <!-- <div class="form-group">
+                                    <input type="checkbox" id="option1">
+                                    <label>Direct Bank Transfer</label>
+                                    <p>Make your payment directly into our bank account. Please use your Order ID as the
+                                        payment reference. Your order won’t be shipped until the funds have cleared in our
+                                        account.</p>
+                                </div>
+                         -->
+
+                            </div>
+
+                            <div class="place-order">
+                                <button type="submit" class="btn btn-primary">Complete Payment</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- End Checkout Area -->
+
+{% endblock %}

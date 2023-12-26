@@ -1,0 +1,250 @@
+{% extends 'adminsection/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->                      
+    <div class="content-page">
+        <!-- Start content -->
+        <div class="content">
+            
+        
+
+        <div class="wraper container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="bg-picture text-center" style="background-image:url('{% static "customadmin/images/big/bg.jpg" %} ')">
+                        <div class="bg-picture-overlay"></div>
+                        <div class="profile-info-name">
+                            <img src="{{ profile.profile.profile_pic.url }}" class="thumb-lg img-circle img-thumbnail" alt="profile-image">
+                            <h3 class="text-white">{{ profile }}</h3>
+                        </div>
+                    </div>
+                    <!--/ meta -->
+                </div>
+            </div>
+            <div class="row user-tabs">
+                <div class="col-lg-6 col-md-9 col-sm-9">
+                    <ul class="nav nav-tabs tabs">
+                    <li class="active tab">
+                        <a href="#home-2" data-toggle="tab" aria-expanded="false" class="active"> 
+                            <span class="visible-xs"><i class="fa fa-home"></i></span> 
+                            <span class="hidden-xs">About Me</span> 
+                        </a> 
+                    </li> 
+                    <li class="tab"> 
+                        <a href="#messages-2" data-toggle="tab" aria-expanded="true"> 
+                            <span class="visible-xs"><i class="fa fa-envelope-o"></i></span> 
+                            <span class="hidden-xs">Courses</span> 
+                        </a> 
+                    </li> 
+                <div class="indicator"></div></ul> 
+                </div>
+                <div class="col-lg-6 col-md-3 col-sm-3 hidden-xs">
+                    <div class="pull-right">
+                        <div class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle btn-rounded btn btn-primary waves-effect waves-light" href="#"> Following <span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                <li><a href="#">Poke</a></li>
+                                <li><a href="#">Private message</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Unfollow</a></li>
+                            </ul>
+                        </div>
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12"> 
+                
+                <div class="tab-content profile-tab-content"> 
+                    <div class="tab-pane active" id="home-2"> 
+                        <div class="row">
+                            <div class="col-md-4">
+                                <!-- Personal-Information -->
+                                <div class="panel panel-default panel-fill">
+                                    <div class="panel-heading"> 
+                                        <h3 class="panel-title">Personal Information</h3> 
+                                    </div> 
+                                    <div class="panel-body"> 
+                                        <div class="about-info-p">
+                                            <strong>Full Name</strong>
+                                            <br/>
+                                            <p class="text-muted">{{ profile.get_full_name }}</p>
+                                        </div>
+                                        <div class="about-info-p">
+                                            <strong>Mobile</strong>
+                                            <br/>
+                                            <p class="text-muted">(123) 123 1234</p>
+                                        </div>
+                                        <div class="about-info-p">
+                                            <strong>Email</strong>
+                                            <br/>
+                                            <p class="text-muted">{{ profile.email }}</p>
+                                        </div>
+                                        <div class="about-info-p m-b-0">
+                                            <strong>Location</strong>
+                                            <br/>
+                                            <p class="text-muted">USA</p>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <!-- Personal-Information -->
+
+                                <!-- Languages -->
+                                <div class="panel panel-default panel-fill">
+                                    <div class="panel-heading"> 
+                                        <h3 class="panel-title">Website</h3> 
+                                    </div> 
+                                    <div class="panel-body"> 
+                                        <ul>
+                                            <li>{{ profile.profile.website }}</li>
+                                        </ul>
+                                    </div> 
+                                </div>
+                                <!-- Languages -->
+
+                            </div>
+
+
+                            <div class="col-md-8">
+                                <!-- Personal-Information -->
+                                <div class="panel panel-default panel-fill">
+                                    <div class="panel-heading"> 
+                                        <h3 class="panel-title">Biography</h3> 
+                                    </div> 
+                                    <div class="panel-body"> 
+                                        <p>{{ profile.profile.about }}</p>
+                                    </div> 
+                                </div>
+                                <!-- Personal-Information -->
+
+                                <div class="panel panel-default panel-fill">
+                                    <div class="panel-heading"> 
+                                        <h3 class="panel-title">Skills</h3> 
+                                    </div> 
+                                    <div class="panel-body"> 
+                                        <div class="m-b-15">
+                                            <h5>Angular Js <span class="pull-right">60%</span></h5>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-primary wow animated progress-animated" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                                    <span class="sr-only">60% Complete</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="m-b-15">
+                                            <h5>Javascript <span class="pull-right">90%</span></h5>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-pink wow animated progress-animated" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+                                                    <span class="sr-only">90% Complete</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="m-b-15">
+                                            <h5>Wordpress <span class="pull-right">80%</span></h5>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-purple wow animated progress-animated" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                                                    <span class="sr-only">80% Complete</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="m-b-0">
+                                            <h5>HTML5 &amp; CSS3 <span class="pull-right">95%</span></h5>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-info wow animated progress-animated" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">
+                                                    <span class="sr-only">95% Complete</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div> 
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div> 
+                    <div class="tab-pane" id="messages-2">
+                        <!-- Personal-Information -->
+                        <div class="panel panel-default panel-fill">
+                            <div class="panel-heading"> 
+                                <h3 class="panel-title">Courses ({{ total_courses }})</h3> 
+                            </div> 
+                            <div class="panel-body"> 
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        {% if profile.role == 'tea' %}
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Course Name</th>
+                                                <th>Submission Date</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for course in courses %}
+                                            <tr>
+                                                <td>{{ forloop.counter }}</td>
+                                                <td><a href="{{ course.get_absolute_url }}" target="_blank" rel="">{{ course.title }}</a></td>
+                                                <td>{{ course.timestamp|date:"j-M-Y "  }}</td>
+                                                <td>
+                                                    {% if course.is_published == True %}
+                                                    <span class="label label-success">
+                                                        Published
+                                                    {% elif course.is_published == False %}
+                                                    <span class="label label-warning">
+                                                        Pending
+                                                    {% endif %}
+                                                    </span>
+                                                </td>
+                                                <!-- <td><span class="label label-warning">Coming soon</span></td> -->
+                                                <td>Coderthemes</td>
+                                            </tr>
+                                            {% endfor %}
+
+                                        </tbody>
+                                        {% elif profile.role == 'stu' %}
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Course Name</th>
+                                                <th>Enrolled Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for course in courses.products.all %}
+                                            <tr>
+                                                <td>{{ forloop.counter }}</td>
+                                                <td><a href="{{ course.get_absolute_url }}" target="_blank" rel="">{{ course.title }}</a></td>
+                                                <td>{{ courses.timestamp|date:"j-M-Y "  }}</td>
+                                                <!-- <td><span class="label label-warning">Coming soon</span></td> -->
+                                            </tr>
+                                            {% endfor %}
+
+                                        </tbody>
+                                        {% endif %}
+                                    </table>
+                                </div>
+                            </div> 
+                        </div>
+                        <!-- Personal-Information -->
+                    </div> 
+                </div> 
+            </div>
+            </div>
+        </div> <!-- container -->
+        </div> <!-- content -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
+
+
+{% endblock %}
