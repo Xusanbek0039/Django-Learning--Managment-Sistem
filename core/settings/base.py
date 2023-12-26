@@ -171,3 +171,5 @@ STATICFILES_DIRS = [
     BASE_DIR / 'blog/static',
 ]
 # from core.aws.conf import *
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
