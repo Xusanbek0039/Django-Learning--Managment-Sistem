@@ -12,13 +12,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = ')ce3afwgsvm@2*9to89xcd&=$22qxcz(cujim3$cm6$#*z2v)gb'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG hamda hos sozlamari
 DEBUG = True
-
 ALLOWED_HOSTS = ['*']
 
 
-# Application definition
+# Application sozlamari
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -27,8 +26,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    #our installed app
     'coresite.apps.CoresiteConfig',   
     'accounts.apps.AccountsConfig',
     'courses.apps.CoursesConfig',
@@ -40,13 +37,14 @@ INSTALLED_APPS = [
     'customadmin.apps.CustomadminConfig',
     'quizapp.apps.QuizappConfig',
     'payment.apps.PaymentConfig',
-
-    # 3rd Party
     'star_ratings',
     'storages',
     'ckeditor',
 ]
 
+
+
+# Midvarel sozlamari
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
